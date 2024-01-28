@@ -39,7 +39,7 @@ function processCSVBalances() {
         });
 }
 
-// Reads transactions.csv file
+// Reads transaction.csv file
 function processTransaction() {
 
     fs.createReadStream("transaction.csv")
@@ -49,7 +49,7 @@ function processTransaction() {
                 transactions.push(new Transaction(parseInt(data.account_id), parseInt(data.transaction_id), parseInt(data.product_id), data.transaction_type, parseInt(data.amount)));
             }
             catch (err) {
-                console.log("Cannot process transactions.csv file");
+                console.log("Cannot process transaction.csv file");
             }
         })
         .on('end', function () {
@@ -57,7 +57,7 @@ function processTransaction() {
         });
 }
 
-// compares the values from account.csv and transactions.csv
+// compares the values from account.csv and transaction.csv
 function verifyBalances() {
 
     let calculatedBalance = 0;
